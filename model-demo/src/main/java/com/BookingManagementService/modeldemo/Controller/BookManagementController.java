@@ -25,13 +25,18 @@ public class BookManagementController {
     @Autowired
     private BookManagementService bookManagementService;
 
+    /* name of the end point should be a verb not name , since this is an action 
+     so here I prefer to re name the end point to be (addBook) instead of Bookpost 
+    */
     @PostMapping("/Bookpost")
     @Operation(tags = "Book Operations",operationId = "post")
     public String addNewBookToList(@RequestBody Book book){
         bookManagementService.addNewBook(book);
         return "Book Added Successfully";
     }
-
+  /* name of the end point should be a verb not name , since this is an action 
+     so here I prefer to re name the end point to be (addPerson) instead of Personpost 
+    */
     @PostMapping("/Personpost")
     @Operation(tags = "Person Operations",operationId = "post")
     public String addNewPersonToList(@RequestBody Person person){
@@ -39,6 +44,7 @@ public class BookManagementController {
         return "Person Added Successfully";
     }
 
+    // same the above comment should be applied for all the end points 
     @PostMapping("/Accountpost")
     @Operation(tags = "Account Operations",operationId = "post")
     public String addNewAccount(@RequestBody Account account){
